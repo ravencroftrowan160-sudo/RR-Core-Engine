@@ -4,10 +4,11 @@
 #define DEQUE_HPP
 #include <string>
 
+template <typename T>
 class Deque{
 private:    
     int capacity;
-    int* data;
+    T* data;
     int left;
     int right;
     int count;
@@ -19,16 +20,21 @@ public:
     ~Deque();
 
     //need added
-    void addTail(int value);
+    void addTail(const T& value);
+    void addHead(const T& value);
+
+    T removeHead();
+    T removeTail();
+
     void resize();
-    int removeHead();
     bool isEmpty() const;
+
     Deque(int initialCapacity);
+
     std::string dumpArray() const;
     std::string listQueue() const;
-    void addHead(int value);
-    int removeTail();
-
+    void clear(); 
+    
     void solveThink(int values[], int n);
 };
 
